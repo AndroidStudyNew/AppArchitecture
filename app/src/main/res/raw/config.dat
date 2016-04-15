@@ -1,0 +1,5 @@
+# values could be Market, AnZhi, 360 etc.
+vender:Market
+
+# values could be api,sandbox,prerelease default is api
+api:api
