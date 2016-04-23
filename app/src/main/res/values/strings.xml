@@ -2,7 +2,7 @@
     <string name="app_name">AppArchitecture</string>
     <string name="action_settings">Settings</string>
 
-    <string name="app_version">1.0.0.20160315</string>
+    <string name="app_version">1.0</string>
     <string name="key_app_id">MyApplicationID</string>
     <string name="vender">Market</string>
 </resources>

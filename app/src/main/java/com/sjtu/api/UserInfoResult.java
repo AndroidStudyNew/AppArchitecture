@@ -23,6 +23,7 @@ public class UserInfoResult extends BaseMessage {
 
         public String code;
         public String name;//用户姓名
+        public String token;//用户token
         public int level;//0
 
     }

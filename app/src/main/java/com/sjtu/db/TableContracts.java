@@ -21,6 +21,7 @@ public class TableContracts {
         public static final String USER_ID = "user_id";
         public static final String NAME = "name";//用户姓名
         public static final String ACCOUNT_STATE = "account_state";//当前账户状态
+        public static final String ACCOUNT_TOKEN = "account_token";//当前账户token
 
         public static final int STATE_ACTIVE = 1;//账户为登录状态
         public static final int STATE_LOGOUT = 2;//账户为登出状态

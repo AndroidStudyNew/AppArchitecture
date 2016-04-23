@@ -64,6 +64,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + Accounts.TABLE_NAME + " (" + Accounts._ID + " INTEGER PRIMARY KEY,"
                 + Accounts.USER_ID + " TEXT,"
                 + Accounts.NAME + " TEXT,"
+                + Accounts.ACCOUNT_TOKEN + " TEXT,"
                 + Accounts.ACCOUNT_STATE + " INTEGER DEFAULT 0"
                 + ");");
         //创建areas表

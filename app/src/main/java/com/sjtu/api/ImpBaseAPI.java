@@ -5,12 +5,17 @@ import com.sjtu.base.BaseException;
 
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.URLEncoder;
 
 /**
  * Created by CharlesZhu on 2016/4/14.
  */
 public class ImpBaseAPI extends BaseAPI {
+
+    public static final int TEST_ENVIRONMENT = 1;
+    public static final int OFFICIAL_ENVIRONMENT = 2;
 
     public static final int SERVER_OK = -1;
     public static final int NO_NETWORK = -2;
@@ -39,14 +44,20 @@ public class ImpBaseAPI extends BaseAPI {
     }
 
     /**
-     * 获取用户信息
+     * 用户登录，获取用户信息
      *
-     * @param token salesforce登录token
+     * @param name
+     * @param password
      * @return
      * @throws BaseException
      */
-    public UserInfoResult getUserInfo(final String token) throws BaseException {
-        String args = "/getUserInfo?token=" + token;
+    public UserInfoResult getUserInfo(String name,String password) throws BaseException {
+        String args = null;
+        try {
+            args = "/loadUserInfo?name=" + URLEncoder.encode(password,"UTF-8")+ "&file_name=" + URLEncoder.encode(password,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         final UserInfoResult[] result = new UserInfoResult[1];
         operation(args, new Ope() {
             @Override
@@ -67,8 +78,8 @@ public class ImpBaseAPI extends BaseAPI {
     }
 
     /**
-     * 上传名片图片
-     * 使用Demo
+     * POST类型API使用例：上传名片图片
+     *
      * @throws BaseException
      */
    /* public UploadFileResult uploadFile(final String token, final String filePath) throws BaseException {
