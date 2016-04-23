@@ -9,12 +9,25 @@ import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteOpenHelper;
 
 /**
+ * wxsqlite3.jar 源码地址 https://github.com/sqlcipher/android-database-sqlcipher
+ * 开源社区地址：https://www.zetetic.net/sqlcipher/open-source/
+ *
+ * SQLCipher Core
+ * The source code for the core SQLCipher library can be found here, or can be cloned from our git repository:
+ * git clone https://github.com/sqlcipher/sqlcipher.git
+ *
+ * SQLCipher for Android
+ * Source code for the Android packages are made available via git:
+ * git clone https://github.com/sqlcipher/android-database-sqlcipher.git
+ *
+ * SQLCipher for Android Community Edition binary packages are made available as a free service to the community:
+ *
  * Created by CharlesZhu on 2016/4/14.
  */
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "cc4sf.db";
-    private static final String DATABASE_PWD = "cc4sf.db";
+    private static final String DATABASE_NAME = "demo.db";
+    private static final String DATABASE_PWD = "demo.db";
 
     private static final int DATABASE_VERSION1 = 1;
 
