@@ -67,10 +67,9 @@ public class MainApplication extends Application {
                         return;
 
                     if (mAccountInfo != null) {
-                        //获取用户信息，保存到本地
                         try {
-                            //TODO测试
-                            UserInfoResult userInfoResult = mApi.getUserInfo("","");
+                            //TODO 获取用户信息，并保存到文件
+                            UserInfoResult userInfoResult = MainApplication.getAPI().getUserInfo("","");
                             FileUtils.saveFile(userInfoResult.toString(), FileUtils.getSpecifyFileDirectory(FileUtils.FILE_TYPE_ENUM.DIR_TMP, MainApplication.this) + FileUtils.FILE_TMP_DATA, false);
                         } catch (BaseException e) {
                             e.printStackTrace();
@@ -84,12 +83,18 @@ public class MainApplication extends Application {
     }
 
     private static ImpBaseAPI mApi;
-    public static int sAPI_TYPE;
+    private static int sAPI_TYPE;
+
+    /**
+     * 应用程序调用api接口时使用该方法
+     * 例如：MainApplication..getAPI();
+     * @return
+     */
     public static ImpBaseAPI getAPI() {
         return mApi;
     }
 
-    public static int getAPIType() {
+    private static int getAPIType() {
         return sAPI_TYPE;
     }
 
