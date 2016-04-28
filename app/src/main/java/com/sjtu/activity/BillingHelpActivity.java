@@ -1,6 +1,7 @@
 package com.sjtu.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -21,6 +22,9 @@ import com.sjtu.bill.util.Inventory;
 import com.sjtu.bill.util.Purchase;
 import com.sjtu.util.BillingUtil;
 import com.sjtu.util.PreferenceHelper;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 /**
@@ -384,6 +388,33 @@ public class BillingHelpActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * 调用支付接口的方法,消耗类型
+     * @param context
+     * @param userid  用户的id
+     * @param sku  购买的产品id
+     * @param value  购买数量
+     */
+    public static void purchase(Context context,String userid, String sku, int value) {
+        Intent intent = new Intent(context, BillingHelpActivity.class);
+        intent.putExtra(BillingUtil.EXTRA_PRODUCT_ID, sku);
+        String payload;
+        JSONObject json = new JSONObject();
+        try {
+            json.put("user_id", userid);
+            json.put("property_id", BillingUtil.DPS_PROPERTY_ID);
+            json.put("value", value);
+            payload = json.toString();
+            intent.putExtra(BillingUtil.EXTRA_DEV_PAYLOAD,payload);
+            Log.d(TAG, "startIapActivity() developerPayload=" + payload);
+        } catch (JSONException e) {
+            Log.d(TAG, "JSONException", e);
+        }
+        intent.putExtra(BillingUtil.EXTRA_PURCHASE_TYPE,BillingUtil.PURCHASE_TYPE_DPS);
+        intent.putExtra(BillingUtil.EXTRA_SKU_TYPE,BillingUtil.SKU_SFDC_TYPE_CONSUME);
+        context.startActivity(intent);
     }
 
 }
