@@ -127,4 +127,28 @@ public class ImpBaseAPI extends BaseAPI {
         }, API_AREAS, 0);
         return null;
     }*/
+
+
+    /**
+     * DPS张数充值
+     * @param signature
+     * @param sign_content
+     * @return
+     * @throws BaseException
+     */
+    public boolean updateDPSProperty(String signature, final String sign_content) throws BaseException {
+        return false;
+    }
+
+    /**
+     * SFDC购买充值
+     * @param signature
+     * @param sign_content
+     * @return
+     * @throws BaseException
+     */
+    public boolean updateSFDCProperty(String signature, final String sign_content) throws BaseException {
+        return false;
+    }
+
 }

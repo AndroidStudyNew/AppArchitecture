@@ -5,4 +5,8 @@
     <string name="app_version">1.0</string>
     <string name="key_app_id">MyApplicationID</string>
     <string name="vender">Market</string>
+
+    <string name="msg_check_order">Check Order Status</string>
+    <string name="msg_googleplay_unavailable">Google Checkout does not yet support your country or region.</string>
+    <string name="c_sync_msg_server_unavail">Oops, service temporarily unavailable. please retry later.</string>
 </resources>
